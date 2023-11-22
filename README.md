@@ -20,7 +20,8 @@ Once unzipped, cd into the directory:
 
 Create a .env file (copy sample.env to .env and fix the values)
 
-`webhook_url=<yourdiscordwebhookurlhere>`
+`webhook_url=<yourdiscordwebhookurlhere>
+thumbnails=<0|1>`
 
 Copy the service file to the appropriate location in SteamOS:
 

@@ -21,7 +21,7 @@ Once unzipped, cd into the directory:
 Create a .env file (copy sample.env to .env and fix the values)
 
 <pre>
-webhook_url=<yourdiscordwebhookurlhere>
+webhook_url=< your discord webhook url here >
 thumbnails=<0|1>
 </pre>
   

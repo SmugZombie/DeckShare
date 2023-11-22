@@ -1,3 +1,4 @@
 .env
 monitor.state
 junk
+*__pycache__*

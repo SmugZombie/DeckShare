@@ -2,3 +2,4 @@
 monitor.state
 junk
 *__pycache__*
+*.pyc

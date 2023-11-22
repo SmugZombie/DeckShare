@@ -1,9 +1,17 @@
 #!/bin/bash
 CURRENT_DIR="/opt/DeckShare"
+
+# Load .env file
 set -o allexport
 source $CURRENT_DIR/.env
 set +o allexport
 
+# Validate required variables
+# Check if the webhook URL was read correctly
+if [ -z "$webhook_url" ]; then
+    echo "Webhook URL not found in environment"
+    exit 1
+fi
 
 # Directory to monitor
 MONITOR_DIR=$(python3 /opt/DeckShare/steampy/path.py)
@@ -14,23 +22,15 @@ STATE_FILE=$CURRENT_DIR"/monitor.state"
 
 # Function to process a file
 process_file() {
-  echo "Processing file: $1"
+  # Leaving its own function in case we want to do special things when processing
   upload_file $1
 }
 
 upload_file() {
 
-  # Check if the webhook URL was read correctly
-  if [ -z "$webhook_url" ]; then
-      echo "Webhook URL not found in environment"
-      exit 1
-  fi
-
   # File to be uploaded
   filename=$1
-
-  echo "filename: $filename"
-  echo "Webhook URL: $webhook_url"
+  #echo "filename: $filename" # Debug
 
   # Check if the file exists
   if [ ! -f "$filename" ]; then
@@ -63,13 +63,12 @@ while true; do
     # Check if the file is different from the last processed file
     if [ "$FILE_CHANGED" != "$LAST_FILE" ]; then
       process_file "$FILE_CHANGED"
-
       # Save the current state to the state file
       echo "$FILE_CHANGED" > "$STATE_FILE"
       LAST_FILE="$FILE_CHANGED"
     fi
   done
 
-  # Sleep for a while before checking again (adjust as needed)
+  # Sleep for a while before checking again
   sleep 5
 done

@@ -1,6 +1,8 @@
-# DeckShare - SteamOS Service
+# DeckShare - SteamOS Screenshot Sharing Service
 
-DeckShare is a simple bash service that monitors the users Steam directory for new screenshots and automatically posts them to Discord via the provided webhook.
+Steam Screenshot sharing is a hassle, especially on the Steam Deck.
+
+*DeckShare* is a simple bash service that monitors the users Steam directory for new screenshots and automatically posts them to Discord via the provided webhook.
 (You must get your own Discord webhook url and provide it in the .env file)
 
 The service monitors the directory and within 5 seconds of detected changes will post the images to discord and remember what file it posted last to ensure no duplicates.

@@ -14,6 +14,12 @@ Once unzipped, cd into the directory:
 
 `cd /opt/DeckShare`
 
+![image](https://github.com/SmugZombie/DeckShare/assets/11764327/af593bc5-24e3-430a-a841-980982b97821)
+
+Create a .env file (copy sample.env to .env and fix the values)
+
+`webhook_url=<yourdiscordwebhookurlhere>`
+
 Copy the service file to the appropriate location in SteamOS:
 
 `sudo cp deckshare.service /etc/systemd/system/`

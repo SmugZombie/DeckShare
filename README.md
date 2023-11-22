@@ -31,3 +31,7 @@ Check the service status:
 `sudo systemctl status deckshare.service`
 
 ![image](https://github.com/SmugZombie/DeckShare/assets/11764327/dc792fd7-8892-42db-a1ba-09d1b9bcef70)
+
+Now you should be able to locate all new screenshots in your discord history and can share freely / download from here.
+
+![image](https://github.com/SmugZombie/DeckShare/assets/11764327/00e0226f-86a0-46a8-ac1e-3fbe2b9dd814)

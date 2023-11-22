@@ -22,15 +22,22 @@ STATE_FILE=$CURRENT_DIR"/monitor.state"
 
 # Function to process a file
 process_file() {
-  # Leaving its own function in case we want to do special things when processing
-  upload_file $1
+  thumbnailSearch="thumbnail"
+  # Check to see if this is a thumbnail
+  if [[ "$1" == *"$thumbnailSearch"* ]]; then
+    # Check to see if thumbnails are enabled
+    if [[ "$thumbnails" == "1" ]]; then
+      # If enabled, upload, otherwise skip
+      upload_file $1
+    fi
+  else
+    upload_file $1
+  fi
 }
 
 upload_file() {
-
   # File to be uploaded
   filename=$1
-  #echo "filename: $filename" # Debug
 
   # Check if the file exists
   if [ ! -f "$filename" ]; then

@@ -1,0 +1,9 @@
+[Unit]
+Description=Automatic Steam Screenshot Sharing
+
+[Service]
+ExecStart=/bin/bash /opt/DeckShare/deckshare.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
